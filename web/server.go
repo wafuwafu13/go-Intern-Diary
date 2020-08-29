@@ -64,6 +64,7 @@ func (s *server) Handler() http.Handler {
 	}
 
 	handle("GET", "/", s.indexHandler())
+	handle("GET", "/signup", s.willSignupHandler())
 
 	return router
 }
@@ -92,5 +93,11 @@ func (s *server) indexHandler() http.Handler {
 		s.renderTemplate(w, r, "index.tmpl", map[string]interface{}{
 			"Use": "wafuwafu",
 		})
+	})
+}
+
+func (s *server) willSignupHandler() http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		s.renderTemplate(w, r, "signup.tmpl", nil)
 	})
 }
