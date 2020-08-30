@@ -2,13 +2,17 @@ package repository
 
 import (
 	"fmt"
+	"time"
+	"github.com/hatena/go-Intern-Diary/model"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 )
 
 type Repository interface {
-	// ...
+	CreateNewUser(name string, passwordHash string) error
+	FindUserByName(name string) (*model.User, error)
+	CreateNewToken(userID uint64, token string, expiresAt time.Time) error
 
 	Close() error
 }
