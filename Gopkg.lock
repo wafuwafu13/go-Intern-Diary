@@ -84,3 +84,12 @@
   inputs-digest = "9dea555bac43e1cf229a1548f3a47177ebc4930083d84a1d08a4fa3ad4fe6cdb"
   solver-name = "gps-cdcl"
   solver-version = 1
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/crypto"
+  packages = [
+    "bcrypt",
+    "blowfish"
+  ]
+  revision = "8ac0e0d97ce45cd83d1d7243c060cb8461dda5e9"
